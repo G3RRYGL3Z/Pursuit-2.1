@@ -673,6 +673,8 @@
     <div class="toast-stack" aria-live="polite" aria-atomic="true" data-toast-stack></div>
 
     <script>
+        const TEST_MODE = new URLSearchParams(window.location.search).has('test');
+
         const TAG_WEIGHT = {
             required: 3,
             recommended: 2,
@@ -686,8 +688,11 @@
         };
 
         const REMINDER_MINUTES = 60;
-        const LUNCH_STORAGE_KEY = 'pursuit:lunchTimers:v1';
-        const MISSED_STORAGE_KEY = 'pursuit:missedAssignments:v1';
+        const LUNCH_STORAGE_KEY = `pursuit:lunchTimers:v1${TEST_MODE ? ':test' : ''}`;
+        const MISSED_STORAGE_KEY = `pursuit:missedAssignments:v1${TEST_MODE ? ':test' : ''}`;
+
+        const TEST_REMINDER_INTERVAL_MS = 10 * 1000;
+        const TEST_LUNCH_DEFAULT_MS = 20 * 1000;
 
         function pad2(n) {
             return String(n).padStart(2, '0');
@@ -726,6 +731,26 @@
             toast.querySelector('.toast-close')?.addEventListener('click', close);
             stack.appendChild(toast);
             if (timeoutMs > 0) window.setTimeout(close, timeoutMs);
+        }
+
+        function mountTestModePill() {
+            if (!TEST_MODE) return;
+            const host = document.querySelector('.topbar-right');
+            if (!host) return;
+
+            const pill = document.createElement('div');
+            pill.className = 'test-pill';
+            pill.setAttribute('role', 'status');
+            pill.textContent = '🧪 Test mode ON';
+            pill.title = 'Fast reminders/timers enabled. Remove ?test=1 to disable.';
+            host.prepend(pill);
+
+            showToast({
+                title: '🧪 Test mode ON',
+                message: 'Fast reminders and lunch timers enabled for testing.',
+                tone: 'info',
+                timeoutMs: 5000,
+            });
         }
 
         function playBeep() {
@@ -907,7 +932,7 @@
             const stateRaw = localStorage.getItem(MISSED_STORAGE_KEY);
             const state = stateRaw ? JSON.parse(stateRaw) : {};
             const lastReminderAt = typeof state.lastReminderAt === 'number' ? state.lastReminderAt : 0;
-            const minGapMs = REMINDER_MINUTES * 60 * 1000;
+            const minGapMs = TEST_MODE ? TEST_REMINDER_INTERVAL_MS : REMINDER_MINUTES * 60 * 1000;
 
             const shouldRemindNow = now - lastReminderAt > minGapMs;
             if (shouldRemindNow) {
@@ -973,7 +998,9 @@
                 const stopBtn = timerEl.querySelector('[data-lunch-stop]');
                 const resetBtn = timerEl.querySelector('[data-lunch-reset]');
                 const defaultMinutes = Number(timerEl.dataset.defaultMinutes || '30');
-                const defaultMs = (Number.isFinite(defaultMinutes) ? defaultMinutes : 30) * 60 * 1000;
+                const defaultMs = TEST_MODE
+                    ? TEST_LUNCH_DEFAULT_MS
+                    : (Number.isFinite(defaultMinutes) ? defaultMinutes : 30) * 60 * 1000;
 
                 const entry = state[key] || { endAt: null, remainingMs: defaultMs, isRunning: false };
                 const remainingMs = entry.isRunning && entry.endAt ? entry.endAt - Date.now() : entry.remainingMs;
@@ -1016,7 +1043,9 @@
             function start(timerEl) {
                 const key = lunchKeyFor(timerEl);
                 const defaultMinutes = Number(timerEl.dataset.defaultMinutes || '30');
-                const defaultMs = (Number.isFinite(defaultMinutes) ? defaultMinutes : 30) * 60 * 1000;
+                const defaultMs = TEST_MODE
+                    ? TEST_LUNCH_DEFAULT_MS
+                    : (Number.isFinite(defaultMinutes) ? defaultMinutes : 30) * 60 * 1000;
                 const entry = state[key] || { endAt: null, remainingMs: defaultMs, isRunning: false };
                 const remainingMs = entry.remainingMs ?? defaultMs;
                 entry.endAt = Date.now() + remainingMs;
@@ -1045,7 +1074,9 @@
             function reset(timerEl) {
                 const key = lunchKeyFor(timerEl);
                 const defaultMinutes = Number(timerEl.dataset.defaultMinutes || '30');
-                const defaultMs = (Number.isFinite(defaultMinutes) ? defaultMinutes : 30) * 60 * 1000;
+                const defaultMs = TEST_MODE
+                    ? TEST_LUNCH_DEFAULT_MS
+                    : (Number.isFinite(defaultMinutes) ? defaultMinutes : 30) * 60 * 1000;
                 state[key] = { endAt: null, remainingMs: defaultMs, isRunning: false };
                 saveLunchState(state);
                 stopTick(key);
@@ -1221,6 +1252,7 @@
         }
 
         function init() {
+            mountTestModePill();
             bindTaskToggles();
             bindProgressUpdates();
             bindNextBestAction();

@@ -1,6 +1,9 @@
 # Pursuit-2.1
 A replica of the Pursuit student dashboard (weekly curriculum view) with PRD-driven UI/UX improvements.
 
+## PRD
+- See the full product requirements doc in [PRD.md](PRD.md).
+
 ## Included improvements
 - Priority tags (Required / Recommended / Optional) on each activity
 - “Today’s Focus” panel (top priorities for the selected day)
@@ -16,3 +19,7 @@ A replica of the Pursuit student dashboard (weekly curriculum view) with PRD-dri
 ## Run locally
 - `python3 -m http.server 8000`
 - Open `http://localhost:8000/`
+
+## Test mode (fast reminders/timers)
+- Open `http://localhost:8000/?test=1` to enable a visible “Test mode ON” badge.
+- In test mode: missed-assignment reminders run every ~10s and lunch timers default to ~20s.
