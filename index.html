@@ -11,79 +11,1159 @@
 
 <body>
 
-    <nav class="sidebar">
-        <div class="logo">P</div>
-        <div class="nav-icons">
-            <div class="icon">⊞</div>
-            <div class="icon">📅</div>
-            <div class="icon">💬</div>
+    <nav class="sidebar" aria-label="Primary">
+        <div class="sidebar-top">
+            <div class="logo" aria-label="Pursuit">P</div>
+        </div>
+        <div class="nav-icons" aria-label="Navigation">
+            <button class="icon-btn" type="button" aria-label="Dashboard">
+                <span aria-hidden="true">⊞</span>
+            </button>
+            <button class="icon-btn" type="button" aria-label="Curriculum" aria-current="page">
+                <span aria-hidden="true">📅</span>
+            </button>
+            <button class="icon-btn" type="button" aria-label="Messages">
+                <span aria-hidden="true">💬</span>
+            </button>
+        </div>
+        <div class="sidebar-bottom" aria-hidden="true">
+            <div class="icon-divider"></div>
+            <div class="icon-btn ghost">↥</div>
         </div>
     </nav>
 
     <main class="content">
 
-        <header class="animated-header">
-            <p>Hey Gary. Good to see you!</p>
-            <h1>Today's Goal</h1>
-            <h2>Week 1 build presentations and analyze a product you love</h2>
-            <button class="btn-start">Start</button>
+        <header class="topbar">
+            <div class="topbar-left">
+                <h1 class="topbar-title">Hey Juan. Good to see you!</h1>
+            </div>
+            <div class="topbar-right">
+                <div class="alert-pill" role="status" aria-label="Missed assignments" data-missed-assignments>
+                    <span class="alert-dot" aria-hidden="true">😬</span>
+                    <span><strong data-missed-count>1</strong> missed assignments</span>
+                </div>
+            </div>
         </header>
 
-        <section class="weekly-view">
-            <div class="section-title">
-                <h3>L2: Week 2</h3>
-                <p>Deeply analyze a product you love and write a Full PRD.</p>
+        <section class="hero" aria-label="Today goal">
+            <div class="hero-card">
+                <div class="hero-copy">
+                    <h2 class="hero-eyebrow">Today's Goal</h2>
+                    <p class="hero-text">Week 2 assessment (baseline) + UI/UX patterns + wireframe your product</p>
+                    <button class="btn btn-primary btn-start" type="button"><span aria-hidden="true">▶️</span> Start</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="weekly-view" aria-label="Weekly curriculum">
+            <div class="week-header">
+                <div class="week-title">
+                    <div class="week-kicker">L2: Week 2</div>
+                    <div class="week-subtitle">Deeply analyze a product you love, learn UI/UX patterns to understand why it works, and write a Full PRD together</div>
+
+                    <div class="week-progress" aria-label="Weekly progress">
+                        <div class="progress-line">
+                            <span class="progress-label">Weekly progress</span>
+                            <span class="progress-count" data-week-progress>0 / 0</span>
+                        </div>
+                        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-week-progressbar>
+                            <div class="progress-fill" data-week-progressfill></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="week-controls" aria-label="Week controls">
+                    <button class="ctrl-btn" type="button" aria-label="Previous week">‹</button>
+                    <button class="week-dropdown" type="button" aria-label="Select week">
+                        <span>Week 02</span>
+                        <span aria-hidden="true">▾</span>
+                    </button>
+                    <button class="ctrl-btn" type="button" aria-label="Next week">›</button>
+                </div>
             </div>
 
-            <div class="dashboard-grid">
-                <article class="day-card today">
-                    <header>TODAY 1.31 SAT</header>
-                    <ul>
-                        <li>Stand-up</li>
-                        <li>Week 2 kick-off</li>
-                        <li>Week 1 presentations</li>
-                        <li class="separator">Lunch</li>
-                        <li>Product love share</li>
+            <div class="dashboard-grid" role="list">
+                <article class="day-card" data-day="2026-01-31" role="listitem" aria-label="Saturday">
+                    <div class="day-head">
+                        <div class="day-date">1.31 SAT</div>
+                        <div class="day-chip" aria-hidden="true">›</div>
+                    </div>
+
+                    <div class="day-section-title">Activities</div>
+                    <ul class="task-list">
+                        <li class="task" data-tag="optional">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Stand-up complete">
+                                    <span class="task-title">Stand-up</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--optional"><span aria-hidden="true">⚪</span> Optional</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Quick check-in to share blockers and align with your cohort.</p>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="required">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Week 2 kick-off complete">
+                                    <span class="task-title">Week 2 kick-off</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--required"><span aria-hidden="true">🔴</span> Required</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Overview of expectations, deliverables, and the assessment schedule.</p>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="recommended">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Week 1 presentations complete">
+                                    <span class="task-title">Week 1 presentations — First pair builds</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--recommended"><span aria-hidden="true">🟡</span> Recommended</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Observe patterns in structure and storytelling for later PRD work.</p>
+                            </div>
+                        </li>
+
+                        <li class="task task--separator" aria-label="Lunch break">
+                            <div class="task-separator" data-lunch-timer data-default-minutes="30">
+                                <div class="lunch-left">
+                                    <span class="lunch-label">🍽️ Lunch</span>
+                                    <span class="lunch-countdown" data-lunch-countdown>30:00</span>
+                                </div>
+                                <div class="lunch-actions">
+                                    <button class="lunch-btn" type="button" data-lunch-start>Start</button>
+                                    <button class="lunch-btn" type="button" data-lunch-stop disabled>Pause</button>
+                                    <button class="lunch-btn" type="button" data-lunch-reset>Reset</button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="optional" data-action="submit">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Git basics complete">
+                                    <span class="task-title">Git basics + shared repo setup</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--optional"><span aria-hidden="true">⚪</span> Optional</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Optional refresher to keep your workflow smooth this week.</p>
+                                <div class="task-actions">
+                                    <button class="btn btn-secondary" type="button"><span aria-hidden="true">📎</span> Submit Link</button>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
-                    <button class="btn-submit">Submit link</button>
+
+                    <div class="day-footer">
+                        <div class="day-progress">
+                            <div class="progress-line">
+                                <span class="progress-label">Daily progress</span>
+                                <span class="progress-count" data-day-progress>0 / 0</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-day-progressbar>
+                                <div class="progress-fill" data-day-progressfill></div>
+                            </div>
+                        </div>
+                    </div>
                 </article>
 
-                <article class="day-card">
-                    <header>2.1 SUN</header>
-                    <ul>
-                        <li>Week 2 assessment</li>
-                        <li>UI/UX patterns</li>
-                        <li>Product analysis</li>
+                <article class="day-card" data-day="2026-02-01" role="listitem" aria-label="Sunday">
+                    <div class="day-head">
+                        <div class="day-date">2.1 SUN</div>
+                        <div class="day-chip" aria-hidden="true">›</div>
+                    </div>
+
+                    <div class="day-section-title">Activities</div>
+                    <ul class="task-list">
+                        <li class="task" data-tag="required" data-action="submit">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Week 2 assessment technical complete">
+                                    <span class="task-title">Week 2 assessment <span class="task-muted">[Technical]: Propose and implement product improvements</span></span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--required"><span aria-hidden="true">🔴</span> Required</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Submit your technical proposal and any implementation notes.</p>
+                                <div class="task-actions">
+                                    <button class="btn btn-primary" type="button"><span aria-hidden="true">⬆️</span> Submit Assessment</button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="required">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Week 2 assessment business complete">
+                                    <span class="task-title">Week 2 assessment <span class="task-muted">[Business]: Justify highest-value improvements</span></span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--required"><span aria-hidden="true">🔴</span> Required</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Explain tradeoffs and why your improvements matter most.</p>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="recommended" data-action="submit">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark video explanation complete">
+                                    <span class="task-title">Week 2 assessment <span class="task-muted">[Professional]: Video explanation for CEO</span></span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--recommended"><span aria-hidden="true">🟡</span> Recommended</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Record a short, clear walkthrough of your recommendations.</p>
+                                <div class="task-actions">
+                                    <button class="btn btn-secondary" type="button"><span aria-hidden="true">🎥</span> Upload Video</button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="task task--separator" aria-label="Lunch break">
+                            <div class="task-separator" data-lunch-timer data-default-minutes="30">
+                                <div class="lunch-left">
+                                    <span class="lunch-label">🍽️ Lunch</span>
+                                    <span class="lunch-countdown" data-lunch-countdown>30:00</span>
+                                </div>
+                                <div class="lunch-actions">
+                                    <button class="lunch-btn" type="button" data-lunch-start>Start</button>
+                                    <button class="lunch-btn" type="button" data-lunch-stop disabled>Pause</button>
+                                    <button class="lunch-btn" type="button" data-lunch-reset>Reset</button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="recommended">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark UI/UX patterns learning complete">
+                                    <span class="task-title">UI/UX patterns — Individual learning</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--recommended"><span aria-hidden="true">🟡</span> Recommended</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Focus on patterns that reduce scanning effort and increase clarity.</p>
+                            </div>
+                        </li>
                     </ul>
+
+                    <div class="day-footer">
+                        <div class="day-progress">
+                            <div class="progress-line">
+                                <span class="progress-label">Daily progress</span>
+                                <span class="progress-count" data-day-progress>0 / 0</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-day-progressbar>
+                                <div class="progress-fill" data-day-progressfill></div>
+                            </div>
+                        </div>
+                    </div>
                 </article>
 
-                <article class="day-card">
-                    <header>2.2 MON</header>
-                    <ul>
-                        <li>Stand-up</li>
-                        <li>PRD Red Teaming</li>
-                        <li>Business deep dive</li>
+                <article class="day-card day-card--today" data-day="2026-02-02" role="listitem" aria-label="Monday" data-selected="true">
+                    <div class="day-head">
+                        <div class="day-date"><span class="today-label">TODAY</span> 2.2 MON</div>
+                        <div class="day-chip" aria-hidden="true">›</div>
+                    </div>
+
+                    <div class="today-focus" aria-label="Today focus">
+                        <div class="today-focus-head">
+                            <span class="today-focus-title">🎯 Today’s Focus</span>
+                            <div class="today-focus-right">
+                                <button class="next-action-btn" type="button" data-next-action>
+                                    <span aria-hidden="true">🚀</span> Next best action
+                                </button>
+                                <span class="status-pill" data-status-pill>On track</span>
+                            </div>
+                        </div>
+                        <ol class="today-focus-list" data-today-focus-list>
+                            <!-- populated by script -->
+                        </ol>
+                    </div>
+
+                    <div class="day-section-title">Activities</div>
+                    <ul class="task-list">
+                        <li class="task" data-tag="recommended">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Stand-up complete">
+                                    <span class="task-title">Stand-up</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--recommended"><span aria-hidden="true">🟡</span> Recommended</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Set today’s intent and surface blockers early.</p>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="required" data-focus="true" data-action="watch">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Mini L2L complete">
+                                    <span class="task-title">Mini L2L: Shapes of stories</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--required"><span aria-hidden="true">🔴</span> Required</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Short required lesson to tighten narrative and hierarchy.</p>
+                                <div class="task-actions">
+                                    <button class="btn btn-primary" type="button"><span aria-hidden="true">▶️</span> Watch Required Video</button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="required" data-focus="true" data-action="submit">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark PRD Red Teaming complete">
+                                    <span class="task-title">PRD “Red Teaming”</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--required"><span aria-hidden="true">🔴</span> Required</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Identify risks, edge cases, and unclear requirements before writing the PRD.</p>
+                                <div class="task-actions">
+                                    <button class="btn btn-primary" type="button"><span aria-hidden="true">📎</span> Upload PRD Draft</button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="recommended">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Pair check-in complete">
+                                    <span class="task-title">Pair check-in</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--recommended"><span aria-hidden="true">🟡</span> Recommended</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Confirm roles, timelines, and next actions with your partner.</p>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="required" data-focus="true" data-action="submit">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Business deep dive complete">
+                                    <span class="task-title">Product analysis: Business deep dive</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--required"><span aria-hidden="true">🔴</span> Required</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Write 3–5 bullets: users, value prop, and business model assumptions.</p>
+                                <div class="task-actions">
+                                    <button class="btn btn-primary" type="button"><span aria-hidden="true">⬆️</span> Submit Analysis</button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="optional">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Retro complete">
+                                    <span class="task-title">Retro</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--optional"><span aria-hidden="true">⚪</span> Optional</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Quick reflection to improve your system for the rest of the week.</p>
+                            </div>
+                        </li>
                     </ul>
+
+                    <div class="day-footer">
+                        <div class="day-progress">
+                            <div class="progress-line">
+                                <span class="progress-label">Daily progress</span>
+                                <span class="progress-count" data-day-progress>0 / 0</span>
+                            </div>
+                            <div class="progress progress--on-dark" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-day-progressbar>
+                                <div class="progress-fill" data-day-progressfill></div>
+                            </div>
+                        </div>
+                    </div>
                 </article>
 
-                <article class="day-card">
-                    <header>2.3 TUE</header>
-                    <ul>
-                        <li>Product history</li>
-                        <li>Feedback refresher</li>
+                <article class="day-card" data-day="2026-02-03" role="listitem" aria-label="Tuesday">
+                    <div class="day-head">
+                        <div class="day-date">2.3 TUE</div>
+                        <div class="day-chip" aria-hidden="true">›</div>
+                    </div>
+
+                    <div class="day-section-title">Activities</div>
+                    <ul class="task-list">
+                        <li class="task" data-tag="recommended">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Mini L2L product history complete">
+                                    <span class="task-title">Mini L2L product history</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--recommended"><span aria-hidden="true">🟡</span> Recommended</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Build context for why the product evolved the way it did.</p>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="required">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark history deep dive complete">
+                                    <span class="task-title">Product analysis: History deep dive</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--required"><span aria-hidden="true">🔴</span> Required</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Capture timeline milestones and key inflection points.</p>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="recommended">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark feedback refresher complete">
+                                    <span class="task-title">Feedback refresher: How to give great feedback</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--recommended"><span aria-hidden="true">🟡</span> Recommended</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Use a structured feedback rubric during share-outs.</p>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="optional">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark pair share-outs complete">
+                                    <span class="task-title">Pair share-outs — product analysis progress</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--optional"><span aria-hidden="true">⚪</span> Optional</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Share what’s clear and what needs more evidence.</p>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="optional">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Retro complete">
+                                    <span class="task-title">Retro</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--optional"><span aria-hidden="true">⚪</span> Optional</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Close out the day with one improvement for tomorrow.</p>
+                            </div>
+                        </li>
                     </ul>
+
+                    <div class="day-footer">
+                        <div class="day-progress">
+                            <div class="progress-line">
+                                <span class="progress-label">Daily progress</span>
+                                <span class="progress-count" data-day-progress>0 / 0</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-day-progressbar>
+                                <div class="progress-fill" data-day-progressfill></div>
+                            </div>
+                        </div>
+                    </div>
                 </article>
 
-                <article class="day-card">
-                    <header>2.4 WED</header>
-                    <ul>
-                        <li>Final PRD polish</li>
-                        <li>Retro</li>
+                <article class="day-card" data-day="2026-02-04" role="listitem" aria-label="Wednesday">
+                    <div class="day-head">
+                        <div class="day-date">2.4 WED</div>
+                        <div class="day-chip" aria-hidden="true">›</div>
+                    </div>
+
+                    <div class="day-section-title">Activities</div>
+                    <ul class="task-list">
+                        <li class="task" data-tag="required">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Stand-up complete">
+                                    <span class="task-title">Stand-up</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--required"><span aria-hidden="true">🔴</span> Required</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Align on final PRD polishing plan and timing.</p>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="required" data-action="submit">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Final PRD polish complete">
+                                    <span class="task-title">Final PRD polish</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--required"><span aria-hidden="true">🔴</span> Required</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Tighten language, acceptance criteria, and success metrics.</p>
+                                <div class="task-actions">
+                                    <button class="btn btn-primary" type="button"><span aria-hidden="true">⬆️</span> Submit PRD</button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="recommended">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Presentation prep complete">
+                                    <span class="task-title">Presentation prep</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--recommended"><span aria-hidden="true">🟡</span> Recommended</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Create a 3–5 minute narrative focused on priorities and tradeoffs.</p>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="optional">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark practice with another pair complete">
+                                    <span class="task-title">Presentation practice with another pair</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--optional"><span aria-hidden="true">⚪</span> Optional</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Get fast feedback on clarity and hierarchy.</p>
+                            </div>
+                        </li>
+
+                        <li class="task" data-tag="optional">
+                            <div class="task-row">
+                                <label class="task-checkwrap">
+                                    <input class="task-check" type="checkbox" aria-label="Mark Retro complete">
+                                    <span class="task-title">Retro</span>
+                                </label>
+                                <div class="task-right">
+                                    <span class="tag tag--optional"><span aria-hidden="true">⚪</span> Optional</span>
+                                    <button class="task-toggle" type="button" aria-expanded="false">Details</button>
+                                </div>
+                            </div>
+                            <div class="task-detail" hidden>
+                                <p class="task-desc">Close the week with wins, lessons, and next experiments.</p>
+                            </div>
+                        </li>
                     </ul>
+
+                    <div class="day-footer">
+                        <div class="day-progress">
+                            <div class="progress-line">
+                                <span class="progress-label">Daily progress</span>
+                                <span class="progress-count" data-day-progress>0 / 0</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-day-progressbar>
+                                <div class="progress-fill" data-day-progressfill></div>
+                            </div>
+                        </div>
+                    </div>
                 </article>
             </div>
         </section>
     </main>
+
+    <div class="toast-stack" aria-live="polite" aria-atomic="true" data-toast-stack></div>
+
+    <script>
+        const TAG_WEIGHT = {
+            required: 3,
+            recommended: 2,
+            optional: 1,
+        };
+
+        const TAG_EMOJI = {
+            required: '🔴',
+            recommended: '🟡',
+            optional: '⚪',
+        };
+
+        const REMINDER_MINUTES = 60;
+        const LUNCH_STORAGE_KEY = 'pursuit:lunchTimers:v1';
+        const MISSED_STORAGE_KEY = 'pursuit:missedAssignments:v1';
+
+        function pad2(n) {
+            return String(n).padStart(2, '0');
+        }
+
+        function msToMMSS(ms) {
+            const clamped = Math.max(0, ms);
+            const totalSeconds = Math.floor(clamped / 1000);
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            return `${pad2(minutes)}:${pad2(seconds)}`;
+        }
+
+        function getToastStack() {
+            return document.querySelector('[data-toast-stack]');
+        }
+
+        function showToast({ title, message, tone = 'info', timeoutMs = 7000 }) {
+            const stack = getToastStack();
+            if (!stack) return;
+
+            const toast = document.createElement('div');
+            toast.className = `toast toast--${tone}`;
+            toast.setAttribute('role', 'status');
+            toast.innerHTML = `
+                <div class="toast-title">${title}</div>
+                <div class="toast-message">${message}</div>
+                <button class="toast-close" type="button" aria-label="Dismiss">×</button>
+            `;
+
+            const close = () => {
+                toast.classList.add('toast--hide');
+                window.setTimeout(() => toast.remove(), 200);
+            };
+
+            toast.querySelector('.toast-close')?.addEventListener('click', close);
+            stack.appendChild(toast);
+            if (timeoutMs > 0) window.setTimeout(close, timeoutMs);
+        }
+
+        function playBeep() {
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                const ctx = new AudioCtx();
+                const o = ctx.createOscillator();
+                const g = ctx.createGain();
+                o.type = 'sine';
+                o.frequency.value = 880;
+                g.gain.value = 0.05;
+                o.connect(g);
+                g.connect(ctx.destination);
+                o.start();
+                setTimeout(() => {
+                    o.stop();
+                    ctx.close();
+                }, 250);
+            } catch {
+                // no-op
+            }
+        }
+
+        async function maybeNotify(title, body) {
+            if (!('Notification' in window)) {
+                showToast({ title, message: body, tone: 'info' });
+                return;
+            }
+
+            if (Notification.permission === 'default') {
+                try {
+                    await Notification.requestPermission();
+                } catch {
+                    // ignore
+                }
+            }
+
+            if (Notification.permission === 'granted') {
+                try {
+                    new Notification(title, { body });
+                    return;
+                } catch {
+                    // fall through
+                }
+            }
+
+            showToast({ title, message: body, tone: 'info' });
+        }
+
+        function getTasks(root = document) {
+            return Array.from(root.querySelectorAll('.task-list .task')).filter((li) => !li.classList.contains('task--separator'));
+        }
+
+        function setProgress(progressEl, fillEl, countEl, done, total) {
+            const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+            if (fillEl) fillEl.style.width = `${pct}%`;
+            if (countEl) countEl.textContent = `${done} / ${total}`;
+            if (progressEl) progressEl.setAttribute('aria-valuenow', String(pct));
+        }
+
+        function updateDayProgress(dayCard) {
+            const tasks = getTasks(dayCard);
+            const checks = tasks.map((t) => t.querySelector('.task-check')).filter(Boolean);
+            const total = checks.length;
+            const done = checks.filter((c) => c.checked).length;
+
+            const progressEl = dayCard.querySelector('[data-day-progressbar]');
+            const fillEl = dayCard.querySelector('[data-day-progressfill]');
+            const countEl = dayCard.querySelector('[data-day-progress]');
+
+            setProgress(progressEl, fillEl, countEl, done, total);
+            return { done, total };
+        }
+
+        function updateWeekProgress() {
+            const allTasks = getTasks(document);
+            const allChecks = allTasks.map((t) => t.querySelector('.task-check')).filter(Boolean);
+            const total = allChecks.length;
+            const done = allChecks.filter((c) => c.checked).length;
+
+            const progressEl = document.querySelector('[data-week-progressbar]');
+            const fillEl = document.querySelector('[data-week-progressfill]');
+            const countEl = document.querySelector('[data-week-progress]');
+            setProgress(progressEl, fillEl, countEl, done, total);
+        }
+
+        function deriveTodayFocus(todayCard) {
+            const focusList = todayCard.querySelector('[data-today-focus-list]');
+            if (!focusList) return;
+
+            const tasks = getTasks(todayCard);
+            const focus = tasks
+                .filter((t) => t.dataset.focus === 'true')
+                .map((t) => {
+                    const titleEl = t.querySelector('.task-title');
+                    const tag = t.dataset.tag || 'optional';
+                    const check = t.querySelector('.task-check');
+                    return {
+                        el: t,
+                        title: titleEl ? titleEl.textContent.trim() : 'Task',
+                        tag,
+                        done: check ? check.checked : false,
+                        weight: TAG_WEIGHT[tag] ?? 0,
+                    };
+                })
+                .sort((a, b) => b.weight - a.weight)
+                .slice(0, 3);
+
+            focusList.innerHTML = '';
+            for (const item of focus) {
+                const li = document.createElement('li');
+                li.className = 'today-focus-item';
+                const tagEmoji = TAG_EMOJI[item.tag] || '•';
+                li.innerHTML = `
+                    <span class="focus-check" aria-hidden="true">${item.done ? '✓' : '•'}</span>
+                    <span class="focus-title">${item.title}</span>
+                    <span class="focus-tag">${tagEmoji} ${item.tag}</span>
+                `;
+                focusList.appendChild(li);
+            }
+
+            if (focus.length === 0) {
+                const li = document.createElement('li');
+                li.className = 'today-focus-item';
+                li.textContent = 'No critical items flagged yet.';
+                focusList.appendChild(li);
+            }
+        }
+
+        function updateStatusPill(todayCard) {
+            const pill = todayCard.querySelector('[data-status-pill]');
+            if (!pill) return;
+
+            const requiredTasks = getTasks(todayCard).filter((t) => (t.dataset.tag || '') === 'required');
+            const requiredChecks = requiredTasks.map((t) => t.querySelector('.task-check')).filter(Boolean);
+            const requiredDone = requiredChecks.filter((c) => c.checked).length;
+            const requiredTotal = requiredChecks.length;
+
+            let statusText = 'On track';
+            let statusClass = 'status-pill--good';
+            let statusEmoji = '✅';
+
+            if (requiredTotal > 0 && requiredDone === 0) {
+                statusText = 'Behind';
+                statusClass = 'status-pill--warn';
+                statusEmoji = '⏰';
+            } else if (requiredTotal > 0 && requiredDone < requiredTotal) {
+                statusText = 'In progress';
+                statusClass = 'status-pill--mid';
+                statusEmoji = '⚠️';
+            }
+
+            pill.textContent = `${statusEmoji} ${statusText}`;
+            pill.classList.remove('status-pill--good', 'status-pill--mid', 'status-pill--warn');
+            pill.classList.add(statusClass);
+        }
+
+        function getMissedCount() {
+            const el = document.querySelector('[data-missed-count]');
+            if (!el) return 0;
+            const n = Number(String(el.textContent).trim());
+            return Number.isFinite(n) ? n : 0;
+        }
+
+        function pulseMissedAssignments(durationMs = 15000) {
+            const pill = document.querySelector('[data-missed-assignments]');
+            if (!pill) return;
+            pill.classList.add('alert-pill--pulse');
+            window.setTimeout(() => pill.classList.remove('alert-pill--pulse'), durationMs);
+        }
+
+        function startMissedAssignmentReminders() {
+            const missed = getMissedCount();
+            if (missed <= 0) return;
+
+            pulseMissedAssignments(20000);
+            const now = Date.now();
+            const stateRaw = localStorage.getItem(MISSED_STORAGE_KEY);
+            const state = stateRaw ? JSON.parse(stateRaw) : {};
+            const lastReminderAt = typeof state.lastReminderAt === 'number' ? state.lastReminderAt : 0;
+            const minGapMs = REMINDER_MINUTES * 60 * 1000;
+
+            const shouldRemindNow = now - lastReminderAt > minGapMs;
+            if (shouldRemindNow) {
+                localStorage.setItem(MISSED_STORAGE_KEY, JSON.stringify({ lastReminderAt: now }));
+                maybeNotify('🚨 Missed assignments', `You have ${missed} missed assignment${missed === 1 ? '' : 's'}. Open the dashboard to catch up.`);
+                showToast({
+                    title: '🚨 Missed assignments',
+                    message: `You have ${missed} missed assignment${missed === 1 ? '' : 's'}.`,
+                    tone: 'warn',
+                });
+            }
+
+            window.setInterval(() => {
+                const missedNow = getMissedCount();
+                if (missedNow <= 0) return;
+                pulseMissedAssignments(20000);
+                const ts = Date.now();
+                localStorage.setItem(MISSED_STORAGE_KEY, JSON.stringify({ lastReminderAt: ts }));
+                maybeNotify('🚨 Reminder: missed assignments', `Still showing ${missedNow} missed assignment${missedNow === 1 ? '' : 's'}.`);
+                showToast({
+                    title: '🚨 Reminder',
+                    message: `Still showing ${missedNow} missed assignment${missedNow === 1 ? '' : 's'}.`,
+                    tone: 'warn',
+                });
+            }, minGapMs);
+        }
+
+        function loadLunchState() {
+            try {
+                const raw = localStorage.getItem(LUNCH_STORAGE_KEY);
+                return raw ? JSON.parse(raw) : {};
+            } catch {
+                return {};
+            }
+        }
+
+        function saveLunchState(state) {
+            try {
+                localStorage.setItem(LUNCH_STORAGE_KEY, JSON.stringify(state));
+            } catch {
+                // ignore
+            }
+        }
+
+        function lunchKeyFor(timerEl) {
+            const dayCard = timerEl.closest('.day-card');
+            const day = dayCard?.dataset.day || 'unknown-day';
+            const idx = Array.from(dayCard?.querySelectorAll('[data-lunch-timer]') || []).indexOf(timerEl);
+            return `${day}:lunch:${idx}`;
+        }
+
+        function initLunchTimers() {
+            const timers = Array.from(document.querySelectorAll('[data-lunch-timer]'));
+            if (timers.length === 0) return;
+
+            const state = loadLunchState();
+            const running = new Map();
+
+            function render(timerEl) {
+                const key = lunchKeyFor(timerEl);
+                const countdownEl = timerEl.querySelector('[data-lunch-countdown]');
+                const startBtn = timerEl.querySelector('[data-lunch-start]');
+                const stopBtn = timerEl.querySelector('[data-lunch-stop]');
+                const resetBtn = timerEl.querySelector('[data-lunch-reset]');
+                const defaultMinutes = Number(timerEl.dataset.defaultMinutes || '30');
+                const defaultMs = (Number.isFinite(defaultMinutes) ? defaultMinutes : 30) * 60 * 1000;
+
+                const entry = state[key] || { endAt: null, remainingMs: defaultMs, isRunning: false };
+                const remainingMs = entry.isRunning && entry.endAt ? entry.endAt - Date.now() : entry.remainingMs;
+                const isDone = remainingMs <= 0;
+
+                if (countdownEl) countdownEl.textContent = isDone ? '00:00' : msToMMSS(remainingMs);
+                if (startBtn) startBtn.disabled = entry.isRunning;
+                if (stopBtn) stopBtn.disabled = !entry.isRunning;
+                if (resetBtn) resetBtn.disabled = entry.isRunning;
+
+                timerEl.classList.toggle('lunch--done', isDone);
+            }
+
+            function stopTick(key) {
+                const id = running.get(key);
+                if (id) window.clearInterval(id);
+                running.delete(key);
+            }
+
+            function tick(timerEl) {
+                const key = lunchKeyFor(timerEl);
+                const entry = state[key];
+                if (!entry?.isRunning || !entry.endAt) return;
+                const remainingMs = entry.endAt - Date.now();
+                if (remainingMs <= 0) {
+                    entry.isRunning = false;
+                    entry.remainingMs = 0;
+                    entry.endAt = null;
+                    saveLunchState(state);
+                    stopTick(key);
+                    render(timerEl);
+                    playBeep();
+                    maybeNotify('⏰ Lunch is over', 'Time to head back — your lunch timer ended.');
+                    showToast({ title: '⏰ Lunch is over', message: 'Time to head back.', tone: 'good', timeoutMs: 10000 });
+                    return;
+                }
+                render(timerEl);
+            }
+
+            function start(timerEl) {
+                const key = lunchKeyFor(timerEl);
+                const defaultMinutes = Number(timerEl.dataset.defaultMinutes || '30');
+                const defaultMs = (Number.isFinite(defaultMinutes) ? defaultMinutes : 30) * 60 * 1000;
+                const entry = state[key] || { endAt: null, remainingMs: defaultMs, isRunning: false };
+                const remainingMs = entry.remainingMs ?? defaultMs;
+                entry.endAt = Date.now() + remainingMs;
+                entry.isRunning = true;
+                state[key] = entry;
+                saveLunchState(state);
+                render(timerEl);
+                stopTick(key);
+                running.set(key, window.setInterval(() => tick(timerEl), 250));
+                maybeNotify('🍽️ Lunch timer started', `I’ll notify you in ${msToMMSS(remainingMs)}.`);
+            }
+
+            function pause(timerEl) {
+                const key = lunchKeyFor(timerEl);
+                const entry = state[key];
+                if (!entry?.isRunning || !entry.endAt) return;
+                entry.remainingMs = Math.max(0, entry.endAt - Date.now());
+                entry.endAt = null;
+                entry.isRunning = false;
+                state[key] = entry;
+                saveLunchState(state);
+                stopTick(key);
+                render(timerEl);
+            }
+
+            function reset(timerEl) {
+                const key = lunchKeyFor(timerEl);
+                const defaultMinutes = Number(timerEl.dataset.defaultMinutes || '30');
+                const defaultMs = (Number.isFinite(defaultMinutes) ? defaultMinutes : 30) * 60 * 1000;
+                state[key] = { endAt: null, remainingMs: defaultMs, isRunning: false };
+                saveLunchState(state);
+                stopTick(key);
+                render(timerEl);
+            }
+
+            for (const timerEl of timers) {
+                render(timerEl);
+
+                const key = lunchKeyFor(timerEl);
+                const entry = state[key];
+                if (entry?.isRunning) {
+                    stopTick(key);
+                    running.set(key, window.setInterval(() => tick(timerEl), 250));
+                }
+
+                timerEl.querySelector('[data-lunch-start]')?.addEventListener('click', () => start(timerEl));
+                timerEl.querySelector('[data-lunch-stop]')?.addEventListener('click', () => pause(timerEl));
+                timerEl.querySelector('[data-lunch-reset]')?.addEventListener('click', () => reset(timerEl));
+            }
+        }
+
+        function bindTaskToggles(root = document) {
+            root.addEventListener('click', (e) => {
+                const toggle = e.target.closest('.task-toggle');
+                if (!toggle) return;
+                const task = toggle.closest('.task');
+                const detail = task ? task.querySelector('.task-detail') : null;
+                if (!task || !detail) return;
+
+                const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', String(!expanded));
+                detail.hidden = expanded;
+            });
+        }
+
+        function openTaskDetails(taskEl) {
+            const toggle = taskEl.querySelector('.task-toggle');
+            const detail = taskEl.querySelector('.task-detail');
+            if (!toggle || !detail) return;
+            toggle.setAttribute('aria-expanded', 'true');
+            detail.hidden = false;
+        }
+
+        function highlightTask(taskEl) {
+            taskEl.classList.remove('task--highlight');
+            // force reflow so the animation can re-trigger
+            void taskEl.offsetWidth;
+            taskEl.classList.add('task--highlight');
+            window.setTimeout(() => taskEl.classList.remove('task--highlight'), 1400);
+        }
+
+        function getFocusTasks(todayCard) {
+            return getTasks(todayCard)
+                .filter((t) => t.dataset.focus === 'true')
+                .map((t) => {
+                    const tag = t.dataset.tag || 'optional';
+                    const check = t.querySelector('.task-check');
+                    return {
+                        el: t,
+                        tag,
+                        done: check ? check.checked : false,
+                        weight: TAG_WEIGHT[tag] ?? 0,
+                    };
+                })
+                .sort((a, b) => b.weight - a.weight);
+        }
+
+        function chooseNextBestTask(todayCard) {
+            const focus = getFocusTasks(todayCard);
+            const requiredFirst = focus.find((t) => t.tag === 'required' && !t.done);
+            if (requiredFirst) return requiredFirst.el;
+
+            const anyNext = focus.find((t) => !t.done);
+            if (anyNext) return anyNext.el;
+
+            // fallback: first incomplete required anywhere in today
+            const all = getTasks(todayCard).map((t) => {
+                const tag = t.dataset.tag || 'optional';
+                const check = t.querySelector('.task-check');
+                return { el: t, tag, done: check ? check.checked : false };
+            });
+
+            const req = all.find((t) => t.tag === 'required' && !t.done);
+            if (req) return req.el;
+            const any = all.find((t) => !t.done);
+            return any ? any.el : null;
+        }
+
+        function bindNextBestAction() {
+            document.addEventListener('click', (e) => {
+                const btn = e.target.closest('[data-next-action]');
+                if (!btn) return;
+                const todayCard = btn.closest('.day-card');
+                if (!todayCard) return;
+
+                const nextTask = chooseNextBestTask(todayCard);
+                if (!nextTask) {
+                    showToast({ title: '✅ All set', message: 'No remaining tasks to focus on right now.', tone: 'good' });
+                    return;
+                }
+
+                openTaskDetails(nextTask);
+                nextTask.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                highlightTask(nextTask);
+            });
+        }
+
+        function bindProgressUpdates() {
+            document.addEventListener('change', (e) => {
+                const check = e.target.closest('.task-check');
+                if (!check) return;
+                const dayCard = check.closest('.day-card');
+                if (dayCard) updateDayProgress(dayCard);
+                updateWeekProgress();
+
+                const todayCard = document.querySelector('.day-card--today');
+                if (todayCard) {
+                    deriveTodayFocus(todayCard);
+                    updateStatusPill(todayCard);
+                }
+            });
+        }
+
+        function init() {
+            bindTaskToggles();
+            bindProgressUpdates();
+            bindNextBestAction();
+            const dayCards = Array.from(document.querySelectorAll('.day-card'));
+            for (const card of dayCards) updateDayProgress(card);
+            updateWeekProgress();
+            const todayCard = document.querySelector('.day-card--today');
+            if (todayCard) {
+                deriveTodayFocus(todayCard);
+                updateStatusPill(todayCard);
+            }
+
+            initLunchTimers();
+            startMissedAssignmentReminders();
+        }
+
+        init();
+    </script>
 </body>
 
 </html>
