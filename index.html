@@ -13,19 +13,49 @@
 
     <nav class="sidebar" aria-label="Primary">
         <div class="sidebar-top">
-            <div class="logo" aria-label="Pursuit">P</div>
+            <div class="logo" aria-label="Pursuit">
+                <span class="logo-mark" aria-hidden="true">p</span>
+            </div>
         </div>
         <div class="nav-icons" aria-label="Navigation">
-            <button class="icon-btn" type="button" aria-label="Dashboard">
-                <span aria-hidden="true">⊞</span>
+            <button class="icon-btn" type="button" aria-label="Curriculum">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M4 6.5c0-1.4 1.1-2.5 2.5-2.5H20v16H6.5C5.1 20 4 18.9 4 17.5V6.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                    <path d="M8 7.5h8M8 11h8M8 14.5h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    <path d="M6.5 4C5.1 4 4 5.1 4 6.5S5.1 9 6.5 9H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                </svg>
             </button>
-            <button class="icon-btn" type="button" aria-label="Curriculum" aria-current="page">
-                <span aria-hidden="true">📅</span>
-            </button>
+
             <button class="icon-btn" type="button" aria-label="Messages">
-                <span aria-hidden="true">💬</span>
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M5 6.8C5 5.25 6.25 4 7.8 4h8.4C17.75 4 19 5.25 19 6.8v6.4c0 1.55-1.25 2.8-2.8 2.8H10l-4.1 3.1c-.5.38-1.2.02-1.2-.6V16c-.46-.5-.7-1.13-.7-1.8V6.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                    <path d="M8 8.5h8M8 11.5h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+            </button>
+
+            <button class="icon-btn" type="button" aria-label="Calendar" aria-current="page">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M7 4v3M17 4v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    <path d="M5.5 7.5h13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    <path d="M6.5 5.5h11c1.1 0 2 .9 2 2v11c0 1.1-.9 2-2 2h-11c-1.1 0-2-.9-2-2v-11c0-1.1.9-2 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                    <path d="M8 11h3M8 14h3M13 11h3M13 14h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+            </button>
+
+            <button class="icon-btn" type="button" aria-label="Go to curriculum">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M8 12h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    <path d="M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+
+            <button class="icon-btn" type="button" aria-label="Activity">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M4 12h4l2.1-5.5L13 17l2-5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
             </button>
         </div>
+
         <div class="sidebar-bottom" aria-hidden="true">
             <div class="icon-divider"></div>
             <div class="icon-btn ghost">↥</div>
@@ -39,6 +69,16 @@
                 <h1 class="topbar-title">Hey Juan. Good to see you!</h1>
             </div>
             <div class="topbar-right">
+                <div class="topbar-search" data-assignment-search>
+                    <input class="search-input" type="search" autocomplete="off" spellcheck="false"
+                        placeholder="Find assignment…" aria-label="Find assignment" data-search-input />
+                    <div class="search-results" role="listbox" hidden data-search-results></div>
+                </div>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"
+                    aria-label="Toggle dark mode" title="Toggle day/night">
+                    <span class="theme-toggle-icon" aria-hidden="true" data-theme-icon>🌙</span>
+                    <span class="theme-toggle-text" data-theme-text>Night</span>
+                </button>
                 <div class="alert-pill" role="status" aria-label="Missed assignments" data-missed-assignments>
                     <span class="alert-dot" aria-hidden="true">😬</span>
                     <span><strong data-missed-count>1</strong> missed assignments</span>
@@ -86,7 +126,10 @@
                 </div>
             </div>
 
-            <div class="dashboard-grid" role="list">
+            <div class="dashboard-scroll" aria-label="Week days">
+                <button class="scroll-btn" type="button" data-scroll-left aria-label="Scroll days left">‹</button>
+                <div class="dashboard-scroll-viewport" data-dashboard-viewport>
+                    <div class="dashboard-grid" role="list">
                 <article class="day-card" data-day="2026-01-31" role="listitem" aria-label="Saturday">
                     <div class="day-head">
                         <div class="day-date">1.31 SAT</div>
@@ -720,6 +763,9 @@
                         </div>
                     </div>
                 </article>
+                    </div>
+                </div>
+                <button class="scroll-btn" type="button" data-scroll-right aria-label="Scroll days right">›</button>
             </div>
         </section>
     </main>
@@ -744,9 +790,428 @@
         const REMINDER_MINUTES = 60;
         const LUNCH_STORAGE_KEY = `pursuit:lunchTimers:v1${TEST_MODE ? ':test' : ''}`;
         const MISSED_STORAGE_KEY = `pursuit:missedAssignments:v1${TEST_MODE ? ':test' : ''}`;
+        const TASKS_STORAGE_KEY = `pursuit:taskChecks:v1${TEST_MODE ? ':test' : ''}`;
+        const SELECTED_DAY_STORAGE_KEY = `pursuit:selectedDay:v1${TEST_MODE ? ':test' : ''}`;
+        const CURRICULUM_STORAGE_KEY = `pursuit:curriculum:v1${TEST_MODE ? ':test' : ''}`;
+        const THEME_STORAGE_KEY = `pursuit:theme:v1`;
 
         const TEST_REMINDER_INTERVAL_MS = 10 * 1000;
         const TEST_LUNCH_DEFAULT_MS = 20 * 1000;
+
+        let TASK_STATE = {};
+
+        function loadJson(key, fallback) {
+            try {
+                const raw = localStorage.getItem(key);
+                return raw ? JSON.parse(raw) : fallback;
+            } catch {
+                return fallback;
+            }
+        }
+
+        function saveJson(key, value) {
+            try {
+                localStorage.setItem(key, JSON.stringify(value));
+            } catch {
+                // ignore
+            }
+        }
+
+        function systemPrefersDark() {
+            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+
+        function getStoredTheme() {
+            try {
+                const t = localStorage.getItem(THEME_STORAGE_KEY);
+                return t === 'dark' || t === 'light' ? t : null;
+            } catch {
+                return null;
+            }
+        }
+
+        function setStoredTheme(theme) {
+            try {
+                localStorage.setItem(THEME_STORAGE_KEY, theme);
+            } catch {
+                // ignore
+            }
+        }
+
+        function applyTheme(theme) {
+            const root = document.documentElement;
+            root.dataset.theme = theme;
+
+            const btn = document.querySelector('[data-theme-toggle]');
+            const icon = document.querySelector('[data-theme-icon]');
+            const text = document.querySelector('[data-theme-text]');
+            const isDark = theme === 'dark';
+
+            if (btn) btn.setAttribute('aria-pressed', String(isDark));
+            if (icon) icon.textContent = isDark ? '☀️' : '🌙';
+            if (text) text.textContent = isDark ? 'Day' : 'Night';
+        }
+
+        function initThemeToggle() {
+            const btn = document.querySelector('[data-theme-toggle]');
+            const initial = getStoredTheme() || (systemPrefersDark() ? 'dark' : 'light');
+            applyTheme(initial);
+
+            if (!btn) return;
+            btn.addEventListener('click', () => {
+                const current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                setStoredTheme(next);
+                applyTheme(next);
+            });
+
+            if (window.matchMedia) {
+                const media = window.matchMedia('(prefers-color-scheme: dark)');
+                const onChange = () => {
+                    // Only follow system changes if user hasn't explicitly chosen.
+                    if (getStoredTheme()) return;
+                    applyTheme(systemPrefersDark() ? 'dark' : 'light');
+                };
+                if (typeof media.addEventListener === 'function') media.addEventListener('change', onChange);
+                else if (typeof media.addListener === 'function') media.addListener(onChange);
+            }
+        }
+
+        function taskStorageKeyFor(taskEl) {
+            if (!taskEl) return null;
+            const dayCard = taskEl.closest('.day-card');
+            const day = dayCard?.dataset.day || 'unknown-day';
+            const tasks = dayCard ? getTasks(dayCard) : [];
+            const idx = tasks.indexOf(taskEl);
+            const title = taskEl.querySelector('.task-title')?.textContent?.trim() || 'task';
+            const safeTitle = encodeURIComponent(title.slice(0, 80));
+            return `${day}:task:${idx}:${safeTitle}`;
+        }
+
+        function loadTaskState() {
+            const state = loadJson(TASKS_STORAGE_KEY, {});
+            return state && typeof state === 'object' ? state : {};
+        }
+
+        function saveTaskState(state) {
+            saveJson(TASKS_STORAGE_KEY, state);
+        }
+
+        function applyTaskState(state) {
+            const tasks = getTasks(document);
+            for (const task of tasks) {
+                const check = task.querySelector('.task-check');
+                if (!check) continue;
+                const key = taskStorageKeyFor(task);
+                if (!key) continue;
+                if (typeof state[key] === 'boolean') check.checked = state[key];
+            }
+        }
+
+        function clearSelectedCards() {
+            const cards = Array.from(document.querySelectorAll('.day-card'));
+            for (const card of cards) {
+                card.classList.remove('day-card--selected');
+                card.removeAttribute('aria-selected');
+            }
+        }
+
+        function selectCard(card) {
+            if (!card) return;
+            clearSelectedCards();
+            card.classList.add('day-card--selected');
+            card.setAttribute('aria-selected', 'true');
+            const day = card.dataset.day;
+            if (day) {
+                try {
+                    localStorage.setItem(SELECTED_DAY_STORAGE_KEY, day);
+                } catch {
+                    // ignore
+                }
+            }
+        }
+
+        function restoreSelectedCard() {
+            let storedDay = null;
+            try {
+                storedDay = localStorage.getItem(SELECTED_DAY_STORAGE_KEY);
+            } catch {
+                storedDay = null;
+            }
+
+            const byStored = storedDay
+                ? document.querySelector(`.day-card[data-day="${CSS.escape(storedDay)}"]`)
+                : null;
+            const byDataSelected = document.querySelector('.day-card[data-selected="true"]');
+            const today = document.querySelector('.day-card--today');
+
+            selectCard(byStored || byDataSelected || today);
+        }
+
+        function serializeCard(card) {
+            const dateText = card.querySelector('.day-date')?.textContent?.trim() || '';
+            const dateShort = dateText.replace(/^TODAY\s+/i, '').trim();
+
+            const goal = document.querySelector('.hero-text')?.textContent?.trim() || '';
+
+            const items = [];
+            const taskEls = Array.from(card.querySelectorAll('.task-list .task'));
+            for (const task of taskEls) {
+                if (task.classList.contains('task--separator')) {
+                    const label = task.querySelector('.lunch-label')?.textContent?.trim() || 'Break';
+                    items.push({ type: 'separator', label });
+                    continue;
+                }
+
+                const title = task.querySelector('.task-title')?.textContent?.trim() || 'Task';
+                const tag = task.dataset.tag || 'optional';
+                const emoji = tag === 'required' ? '🔴' : tag === 'recommended' ? '🟡' : '⚪';
+                items.push({ type: 'task', title, tag, emoji });
+            }
+
+            return {
+                dateShort,
+                dateLong: dateText,
+                goal,
+                items,
+            };
+        }
+
+        function buildAssignmentIndexFromDom() {
+            const cards = Array.from(document.querySelectorAll('.day-card[data-day]'));
+            const dayOrder = new Map(cards.map((c, i) => [c.dataset.day, i]));
+
+            const index = [];
+            for (const card of cards) {
+                const day = card.dataset.day;
+                if (!day) continue;
+
+                const dateLong = card.querySelector('.day-date')?.textContent?.trim() || '';
+                const dateShort = dateLong.replace(/^TODAY\s+/i, '').trim();
+                const label = card.getAttribute('aria-label') || '';
+
+                const taskEls = Array.from(card.querySelectorAll('.task-list .task'));
+                let taskIdx = 0;
+                for (const taskEl of taskEls) {
+                    if (taskEl.classList.contains('task--separator')) continue;
+                    const title = taskEl.querySelector('.task-title')?.textContent?.trim() || '';
+                    if (!title) continue;
+                    const tag = taskEl.dataset.tag || 'optional';
+
+                    index.push({
+                        day,
+                        dateShort,
+                        dateLong,
+                        label,
+                        title,
+                        tag,
+                        emoji: TAG_EMOJI[tag] || '⚪',
+                        weight: TAG_WEIGHT[tag] || 0,
+                        dayIdx: dayOrder.get(day) ?? 9999,
+                        taskIdx: taskIdx++,
+                    });
+                }
+            }
+
+            return index;
+        }
+
+        function initAssignmentSearch() {
+            const wrap = document.querySelector('[data-assignment-search]');
+            const input = document.querySelector('[data-search-input]');
+            const resultsEl = document.querySelector('[data-search-results]');
+            if (!wrap || !input || !resultsEl) return;
+
+            let assignmentIndex = buildAssignmentIndexFromDom();
+            let activeIndex = -1;
+            let lastQuery = '';
+
+            const close = () => {
+                resultsEl.hidden = true;
+                resultsEl.innerHTML = '';
+                activeIndex = -1;
+            };
+
+            const open = () => {
+                if (resultsEl.childElementCount > 0) resultsEl.hidden = false;
+            };
+
+            const setActive = (idx) => {
+                const options = Array.from(resultsEl.querySelectorAll('[data-search-option]'));
+                if (!options.length) {
+                    activeIndex = -1;
+                    return;
+                }
+                activeIndex = Math.max(0, Math.min(options.length - 1, idx));
+                for (const [i, el] of options.entries()) {
+                    if (i === activeIndex) el.setAttribute('aria-selected', 'true');
+                    else el.removeAttribute('aria-selected');
+                }
+                options[activeIndex].scrollIntoView({ block: 'nearest' });
+            };
+
+            const selectResult = (item) => {
+                if (!item?.day) return;
+                const card = document.querySelector(`.day-card[data-day="${CSS.escape(item.day)}"]`);
+                if (card) navigateToDay(card);
+                close();
+            };
+
+            const renderResults = (items, query) => {
+                resultsEl.innerHTML = '';
+
+                if (!query) {
+                    close();
+                    return;
+                }
+
+                if (!items.length) {
+                    const empty = document.createElement('div');
+                    empty.className = 'search-empty';
+                    empty.textContent = 'No matches.';
+                    resultsEl.appendChild(empty);
+                    resultsEl.hidden = false;
+                    return;
+                }
+
+                for (const item of items) {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'search-option';
+                    btn.setAttribute('role', 'option');
+                    btn.setAttribute('data-search-option', '');
+                    btn.innerHTML = `
+                        <div class="search-option-main">
+                            <div class="search-option-title">${item.title}</div>
+                            <div class="search-option-meta">${item.dateShort || item.label || item.day}</div>
+                        </div>
+                        <div class="search-option-right">
+                            <span class="tag tag--${item.tag}"><span aria-hidden="true">${item.emoji}</span> ${item.tag}</span>
+                        </div>
+                    `;
+                    btn.addEventListener('click', () => selectResult(item));
+                    resultsEl.appendChild(btn);
+                }
+
+                resultsEl.hidden = false;
+                setActive(0);
+            };
+
+            const search = (query) => {
+                const q = String(query || '').trim().toLowerCase();
+                lastQuery = q;
+                if (!q) {
+                    close();
+                    return;
+                }
+
+                // Keep index fresh if curriculum changes.
+                assignmentIndex = buildAssignmentIndexFromDom();
+
+                const filtered = assignmentIndex
+                    .filter((it) => it.title.toLowerCase().includes(q))
+                    .sort((a, b) => {
+                        if (b.weight !== a.weight) return b.weight - a.weight;
+                        if (a.dayIdx !== b.dayIdx) return a.dayIdx - b.dayIdx;
+                        return a.taskIdx - b.taskIdx;
+                    })
+                    .slice(0, 14);
+
+                renderResults(filtered, q);
+            };
+
+            input.addEventListener('input', () => search(input.value));
+            input.addEventListener('focus', () => {
+                if (resultsEl.childElementCount > 0) open();
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    close();
+                    input.blur();
+                    return;
+                }
+
+                if (resultsEl.hidden) return;
+
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    setActive(activeIndex + 1);
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    setActive(activeIndex - 1);
+                } else if (e.key === 'Enter') {
+                    const options = Array.from(resultsEl.querySelectorAll('[data-search-option]'));
+                    const el = options[activeIndex];
+                    if (!el) return;
+                    e.preventDefault();
+                    // Re-run search to ensure we have latest ordering.
+                    const q = lastQuery;
+                    const list = assignmentIndex
+                        .filter((it) => it.title.toLowerCase().includes(q))
+                        .sort((a, b) => {
+                            if (b.weight !== a.weight) return b.weight - a.weight;
+                            if (a.dayIdx !== b.dayIdx) return a.dayIdx - b.dayIdx;
+                            return a.taskIdx - b.taskIdx;
+                        })
+                        .slice(0, 14);
+                    const item = list[activeIndex];
+                    if (item) selectResult(item);
+                }
+            });
+
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('[data-assignment-search]')) return;
+                close();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+                    e.preventDefault();
+                    input.focus();
+                    input.select();
+                }
+            });
+        }
+
+        function saveCurriculumSnapshot() {
+            const grid = document.querySelector('.dashboard-grid');
+            if (!grid) return;
+            const cards = Array.from(grid.querySelectorAll('.day-card'));
+            const map = {};
+            for (const card of cards) {
+                const day = card.dataset.day;
+                if (!day) continue;
+                map[day] = serializeCard(card);
+            }
+            try {
+                localStorage.setItem(CURRICULUM_STORAGE_KEY, JSON.stringify(map));
+            } catch {
+                // ignore
+            }
+        }
+
+        function navigateToDay(card) {
+            if (!card) return;
+            const day = card.dataset.day;
+            if (!day) return;
+            selectCard(card);
+            saveCurriculumSnapshot();
+            window.location.href = `day.html?day=${encodeURIComponent(day)}${TEST_MODE ? '&test=1' : ''}`;
+        }
+
+        function bindDayNavigation() {
+            const grid = document.querySelector('.dashboard-grid');
+            if (!grid) return;
+
+            grid.addEventListener('click', (e) => {
+                // Don’t navigate if user is interacting with controls.
+                if (e.target.closest('button, input, a, label')) return;
+                const card = e.target.closest('.day-card');
+                if (!card) return;
+                navigateToDay(card);
+            });
+        }
 
         function pad2(n) {
             return String(n).padStart(2, '0');
@@ -1239,12 +1704,44 @@
             });
         }
 
+        function bindDashboardScrollButtons() {
+            const viewport = document.querySelector('[data-dashboard-viewport]');
+            const leftBtn = document.querySelector('[data-scroll-left]');
+            const rightBtn = document.querySelector('[data-scroll-right]');
+            if (!viewport || !leftBtn || !rightBtn) return;
+
+            const updateDisabled = () => {
+                const max = viewport.scrollWidth - viewport.clientWidth;
+                const hasOverflow = max > 2;
+                leftBtn.style.display = hasOverflow ? '' : 'none';
+                rightBtn.style.display = hasOverflow ? '' : 'none';
+                leftBtn.disabled = viewport.scrollLeft <= 2;
+                rightBtn.disabled = viewport.scrollLeft >= max - 2;
+            };
+
+            const scrollByAmount = (dir) => {
+                const firstCard = viewport.querySelector('.day-card');
+                const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 320;
+                const gap = 12;
+                const amount = Math.max(240, Math.round(cardWidth + gap));
+                viewport.scrollBy({ left: dir * amount, behavior: 'smooth' });
+            };
+
+            leftBtn.addEventListener('click', () => scrollByAmount(-1));
+            rightBtn.addEventListener('click', () => scrollByAmount(1));
+            viewport.addEventListener('scroll', updateDisabled, { passive: true });
+            window.addEventListener('resize', updateDisabled);
+            updateDisabled();
+        }
+
         function bindDayExpansion() {
             const grid = document.querySelector('.dashboard-grid');
             if (!grid) return;
+            const scrollWrap = grid.closest('.dashboard-scroll');
 
             function collapseAll() {
                 grid.classList.remove('dashboard-grid--expanded');
+                if (scrollWrap) scrollWrap.classList.remove('dashboard-scroll--expanded');
                 const cards = Array.from(grid.querySelectorAll('.day-card'));
                 for (const card of cards) {
                     card.classList.remove('day-card--expanded', 'day-card--minimized');
@@ -1266,6 +1763,7 @@
                 }
 
                 grid.classList.add('dashboard-grid--expanded');
+                if (scrollWrap) scrollWrap.classList.add('dashboard-scroll--expanded');
                 const cards = Array.from(grid.querySelectorAll('.day-card'));
                 for (const c of cards) {
                     const toggle = c.querySelector('[data-expand-day]');
@@ -1293,6 +1791,14 @@
             document.addEventListener('change', (e) => {
                 const check = e.target.closest('.task-check');
                 if (!check) return;
+
+                const task = check.closest('.task');
+                const storageKey = taskStorageKeyFor(task);
+                if (storageKey) {
+                    TASK_STATE[storageKey] = Boolean(check.checked);
+                    saveTaskState(TASK_STATE);
+                }
+
                 const dayCard = check.closest('.day-card');
                 if (dayCard) updateDayProgress(dayCard);
                 updateWeekProgress();
@@ -1305,51 +1811,25 @@
             });
         }
 
-        function bindCardExpansion() {
-            const dayCards = document.querySelectorAll('.day-card');
-            const content = document.querySelector('.content');
-            const hero = document.querySelector('.hero');
-
-            dayCards.forEach(card => {
-                card.addEventListener('click', function (e) {
-                    // Allow expand button clicks to trigger expansion
-                    const isExpandButton = e.target.closest('.day-chip');
-
-                    // Don't trigger if clicking on interactive elements (except expand button)
-                    if (!isExpandButton && e.target.closest('button, input, a, label')) return;
-
-                    const isExpanded = content.classList.contains('card-expanded');
-                    const isThisCardExpanded = this.classList.contains('expanded');
-
-                    if (isExpanded && isThisCardExpanded) {
-                        // Collapse back to normal view
-                        content.classList.remove('card-expanded');
-                        if (hero) hero.classList.remove('hero--hidden');
-                        dayCards.forEach(c => c.classList.remove('expanded', 'minimized'));
-                    } else {
-                        // Expand this card
-                        content.classList.add('card-expanded');
-                        if (hero) hero.classList.add('hero--hidden');
-                        dayCards.forEach(c => {
-                            if (c === this) {
-                                c.classList.add('expanded');
-                                c.classList.remove('minimized');
-                            } else {
-                                c.classList.add('minimized');
-                                c.classList.remove('expanded');
-                            }
-                        });
-                    }
-                });
-            });
-        }
-
         function init() {
+            initThemeToggle();
             mountTestModePill();
+            initAssignmentSearch();
             bindTaskToggles();
             bindProgressUpdates();
             bindNextBestAction();
-            bindCardExpansion();
+            bindDayExpansion();
+            bindDayNavigation();
+            bindDashboardScrollButtons();
+
+            TASK_STATE = loadTaskState();
+            applyTaskState(TASK_STATE);
+
+            restoreSelectedCard();
+
+            // Seed day view data early so deep links work after first load.
+            saveCurriculumSnapshot();
+
             const dayCards = Array.from(document.querySelectorAll('.day-card'));
             for (const card of dayCards) updateDayProgress(card);
             updateWeekProgress();
