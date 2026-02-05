@@ -1312,8 +1312,11 @@
 
             dayCards.forEach(card => {
                 card.addEventListener('click', function (e) {
-                    // Don't trigger if clicking on interactive elements
-                    if (e.target.closest('button, input, a, label')) return;
+                    // Allow expand button clicks to trigger expansion
+                    const isExpandButton = e.target.closest('.day-chip');
+
+                    // Don't trigger if clicking on interactive elements (except expand button)
+                    if (!isExpandButton && e.target.closest('button, input, a, label')) return;
 
                     const isExpanded = content.classList.contains('card-expanded');
                     const isThisCardExpanded = this.classList.contains('expanded');
