@@ -4,6 +4,11 @@ A replica of the Pursuit student dashboard (weekly curriculum view) with PRD-dri
 ## PRD
 - See the full product requirements doc in [PRD.md](PRD.md).
 
+## Live Site
+🚀 **Deployed at:** [https://g3rrygl3z.github.io/Pursuit-2.1/](https://g3rrygl3z.github.io/Pursuit-2.1/)
+
+The site automatically deploys to GitHub Pages whenever changes are pushed to the `main` branch via GitHub Actions. You can also manually trigger a deployment from the [Actions tab](https://github.com/G3RRYGL3Z/Pursuit-2.1/actions).
+
 ## Included improvements
 - Priority tags (Required / Recommended / Optional) on each activity
 - “Today’s Focus” panel (top priorities for the selected day)
